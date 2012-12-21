@@ -9,7 +9,7 @@ The choice to go with two build jobs was made in order to watch out for our Sona
 
 ## About the Lights
 
-The lights will be turned on and of according to the following table.
+The lights will be turned on and off according to the following table.
 
 <table>
   <thead>
