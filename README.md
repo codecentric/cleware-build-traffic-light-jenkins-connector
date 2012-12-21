@@ -14,9 +14,9 @@ The lights will be turned on and of according to the following table.
 <table>
   <thead>
     <tr>
-      <td>Commit Build Job Status</td>
-      <td>Verification Build Job Status</td>
-      <td>Activated Light</td>
+      <th>Commit Build Job Status</th>
+      <th>Verification Build Job Status</th>
+      <th>Activated Light</th>
     </tr>
   </thead>
   <tbody>
