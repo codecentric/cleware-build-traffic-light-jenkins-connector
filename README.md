@@ -12,60 +12,60 @@ The choice to go with two build jobs was made in order to watch out for our Sona
 The lights will be turned on and of according to the following table.
 
 <table>
-	<thead>
-		<tr>
-			<td>Commit Build Job Status</td>
-			<td>Verification Build Job Status</td>
-			<td>Activated Light</td>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>Success</td>
-			<td>Success</td>
-			<td>Green</td>
-		</tr>
-		<tr>
-			<td>Success</td>
-			<td>Warning</td>
-			<td>Yellow</td>
-		</tr>
-		<tr>
-			<td>Success</td>
-			<td>Failure</td>
-			<td>Yellow</td>
-		</tr>
-		<tr>
-			<td>Warning</td>
-			<td>Success</td>
-			<td>Yellow</td>
-		</tr>
-		<tr>
-			<td>Warning</td>
-			<td>Warning</td>
-			<td>Yellow</td>
-		</tr>
-		<tr>
-			<td>Warning</td>
-			<td>Failure</td>
-			<td>Yellow</td>
-		</tr>
-		<tr>
-			<td>Failure</td>
-			<td>Success</td>
-			<td>Red</td>
-		</tr>
-		<tr>
-			<td>Failure</td>
-			<td>Warning</td>
-			<td>Red</td>
-		</tr>
-		<tr>
-			<td>Failure</td>
-			<td>Failure</td>
-			<td>Red</td>
-		</tr>
-	</tbody>
+  <thead>
+    <tr>
+      <td>Commit Build Job Status</td>
+      <td>Verification Build Job Status</td>
+      <td>Activated Light</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Success</td>
+      <td>Success</td>
+      <td>Green</td>
+    </tr>
+    <tr>
+      <td>Success</td>
+      <td>Warning</td>
+      <td>Yellow</td>
+    </tr>
+    <tr>
+      <td>Success</td>
+      <td>Failure</td>
+      <td>Yellow</td>
+    </tr>
+    <tr>
+      <td>Warning</td>
+      <td>Success</td>
+      <td>Yellow</td>
+    </tr>
+    <tr>
+      <td>Warning</td>
+      <td>Warning</td>
+      <td>Yellow</td>
+    </tr>
+    <tr>
+      <td>Warning</td>
+      <td>Failure</td>
+      <td>Yellow</td>
+    </tr>
+    <tr>
+      <td>Failure</td>
+      <td>Success</td>
+      <td>Red</td>
+    </tr>
+    <tr>
+      <td>Failure</td>
+      <td>Warning</td>
+      <td>Red</td>
+    </tr>
+    <tr>
+      <td>Failure</td>
+      <td>Failure</td>
+      <td>Red</td>
+    </tr>
+  </tbody>
 </table>
 
 ## License
