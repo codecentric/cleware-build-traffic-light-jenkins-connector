@@ -46,11 +46,11 @@
        (cond (and (= commit-job-status :success) (= sonar-job-status :success))
                (exec success-command)
               (= commit-job-status :failure)
-        				(exec failure-command)
-      				:else
-        				(exec warning-command))))
+                (exec failure-command)
+              :else
+                (exec warning-command))))
 
 (defn -main []
-	(while true
+  (while true
     (update-lights)
     (Thread/sleep interval)))
