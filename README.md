@@ -1,10 +1,9 @@
 # Build Traffic Light (BTL) Jenkins Connector
 
-This repository contains scripts that can be used to control extreme 
-feedback devices for the Jenkins Continuous Integration server.
-
-There are several script that you can use, depending on the Version of your 
-Jenkins and your preferred scripting language.
+This repository contains scripts to control a USB traffic light depending
+of the state of your Jenkins Continuous Integration Server. We provide
+scripts in multiple programming/scripting languages, so you can choose the 
+one you prefer the most. 
 
 
 ## REST API:
