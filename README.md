@@ -11,7 +11,7 @@ Jenkins and your preferred scripting language.
 
  - *Clojure Script*:  clojure/src/btl/core.clj
  - *Shell Script*:    bash/restApiListener.sh
- - *Ruby Script*:     ruby/restApi.rb
+ - *Ruby Script*:     ruby/restApiListener.rb
 
 
 ## RSS Feed:
