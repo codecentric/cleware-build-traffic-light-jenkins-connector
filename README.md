@@ -19,6 +19,10 @@ one you prefer the most.
 
  - *Shell Script*: bash/rssFeedReader.sh
 
+# Hardware
+
+You can buy the USB traffic light in this shop
+ - http://www.cleware-shop.de
 
 # Software
 
