@@ -10,7 +10,7 @@ one you prefer the most.
 
 ## REST API:
 
- - *Clojure Script*:  clojure/src/btl/core.clj
+ - *Clojure*:  clojure/
  - *Shell Script*:    bash/restApiListener.sh
  - *Ruby Script*:     ruby/restApiListener.rb
 
