@@ -5,6 +5,8 @@ of the state of your Jenkins Continuous Integration Server. We provide
 scripts in multiple programming/scripting languages, so you can choose the 
 one you prefer the most. 
 
+(http://www.cleware.net/produkte/ampelgruen.jpg)
+
 
 ## REST API:
 
