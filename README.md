@@ -1,75 +1,38 @@
 # Build Traffic Light (BTL) Jenkins Connector
 
-This application is a (very) simple connector for Cleware GmbH's traffic light. You can use this application to connect two of your Jenkins builds to the traffic light.
+This repository contains scripts that can be used to control extreme 
+feedback devices for the Jenkins Continuous Integration server.
 
-The choice to go with two build jobs was made in order to watch out for our Sonar build job (static source code verification). The remainder of this document will refer to two kinds of build jobs:
+There are several script that you can use, depending on the Version of your 
+Jenkins and your preferred scripting language.
 
- - *Commit Build Job*: This is the build job which is run each time you commit.
- - *Verification Build Job*: This might be a build job which runs your static source code verification, linting or integration tests.
 
-## About the Lights
+## REST API:
 
-The lights will be turned on and off according to the following table.
+ - *Clojure Script*:  clojure/src/btl/core.clj
+ - *Shell Script*:    bash/restApiListener.sh
+ - *Ruby Script*:     ruby/restApi.rb
 
-<table>
-  <thead>
-    <tr>
-      <th>Commit Build Job Status</th>
-      <th>Verification Build Job Status</th>
-      <th>Activated Light</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Success</td>
-      <td>Success</td>
-      <td>Green</td>
-    </tr>
-    <tr>
-      <td>Success</td>
-      <td>Warning</td>
-      <td>Yellow</td>
-    </tr>
-    <tr>
-      <td>Success</td>
-      <td>Failure</td>
-      <td>Yellow</td>
-    </tr>
-    <tr>
-      <td>Warning</td>
-      <td>Success</td>
-      <td>Yellow</td>
-    </tr>
-    <tr>
-      <td>Warning</td>
-      <td>Warning</td>
-      <td>Yellow</td>
-    </tr>
-    <tr>
-      <td>Warning</td>
-      <td>Failure</td>
-      <td>Yellow</td>
-    </tr>
-    <tr>
-      <td>Failure</td>
-      <td>Success</td>
-      <td>Red</td>
-    </tr>
-    <tr>
-      <td>Failure</td>
-      <td>Warning</td>
-      <td>Red</td>
-    </tr>
-    <tr>
-      <td>Failure</td>
-      <td>Failure</td>
-      <td>Red</td>
-    </tr>
-  </tbody>
-</table>
 
-## License
+## RSS Feed:
 
-Copyright (C) 2012 codecentric AG
+ - *Shell Script*: bash/rssFeedReader.sh
+
+
+# Software
+
+To control the USB device from your command line, you need the software from Cleware:
+ - http://www.cleware.net/download.html
+
+For Linux use this link:
+ - http://www.vanheusden.com/clewarecontrol/
+
+
+# Have fun
+
+
+# License
+
+Copyright (C) 2013 codecentric AG
 
 Distributed under the MIT License.
