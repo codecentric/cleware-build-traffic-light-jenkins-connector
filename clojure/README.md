@@ -7,6 +7,13 @@ The choice to go with two build jobs was made in order to watch out for our Sona
  - *Commit Build Job*: This is the build job which is run each time you commit.
  - *Verification Build Job*: This might be a build job which runs your static source code verification, linting or integration tests.
 
+## Usage
+
+ 1. Install [Leiningen](https://github.com/technomancy/leiningen)
+ 2. Configure the application through src/btl/core.clj
+ 3. Execute the following command: lein uberjar
+ 4. Run the application: java -jar *standalone.jar
+
 ## About the Lights
 
 The lights will be turned on and off according to the following table.
