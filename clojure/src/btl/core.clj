@@ -6,18 +6,18 @@
   (:require [clj-http.client :as client]))
 
 ; Server specific configurations go here
-(def commit-job-name "build")
-(def sonar-job-name "sonar")
-(def jenkins-host "http://jenkins.example.com")
+(def jobs ["build" "sonar" "itests" "jbehave"])
+(def jenkins-host "http://wgvli39.swlabor.local:8080")
 (def app "C:\\cleware\\USBswitchCmd.exe")
 (def working-dir "C:\\cleware")
 
 (def endpoint-url "%s/job/%s/lastBuild/api/json")
-(def reset-command (str app " 0"))
-(def success-command (str app " G"))
-(def warning-command (str app " Y"))
-(def failure-command (str app " R"))
-(def interval 5000)
+(def commands {
+  :success (str app " G")
+  :warning (str app " Y")
+  :failure (str app " R")
+  })
+(def interval 3000)
 
 (defn exec [cmd]
   (let [command (conj (split cmd #"\s+") :dir working-dir)
@@ -39,16 +39,17 @@
         response (client/get url)]
        (str-to-status (:result (read-json (:body response))))))
 
+(defn combine-status [first-status second-status]
+  (cond (or (= first-status :failure) (= second-status :failure))
+      :failure
+    (or (= first-status :warning) (= second-status :warning))
+      :warning
+    :else
+      :success))
+
 (defn update-lights []
-  (let [commit-job-status (get-last-status commit-job-name)
-        sonar-job-status (get-last-status sonar-job-name)]
-       (exec reset-command)
-       (cond (and (= commit-job-status :success) (= sonar-job-status :success))
-               (exec success-command)
-              (= commit-job-status :failure)
-                (exec failure-command)
-              :else
-                (exec warning-command))))
+  (let [status (reduce combine-status (map get-last-status jobs))]
+    (exec (status commands))))
 
 (defn -main []
   (while true
