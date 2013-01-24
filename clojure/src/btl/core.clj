@@ -7,7 +7,7 @@
 
 ; Server specific configurations go here
 (def jobs ["build" "sonar" "itests" "jbehave"])
-(def jenkins-host "http://wgvli39.swlabor.local:8080")
+(def jenkins-host "http://jenkins.example.com")
 (def app "C:\\cleware\\USBswitchCmd.exe")
 (def working-dir "C:\\cleware")
 
