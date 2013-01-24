@@ -36,8 +36,9 @@
 
 (defn get-last-status [job]
   (let [url (format endpoint-url jenkins-host job)
-        response (client/get url)]
-       (str-to-status (:result (read-json (:body response))))))
+        response (client/get url)
+        body (read-json (:body response))]
+       (if (= (:building body) true) :warning (str-to-status (:result body)))))
 
 (defn combine-status [first-status second-status]
   (cond (or (= first-status :failure) (= second-status :failure))
