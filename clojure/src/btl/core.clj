@@ -6,17 +6,12 @@
   (:require [clj-http.client :as client]))
 
 ; Server specific configurations go here
-(def jobs ["build" "sonar" "itests" "jbehave"])
 (def jenkins-host "http://jenkins.example.com")
 (def app "C:\\cleware\\USBswitchCmd.exe")
 (def working-dir "C:\\cleware")
-
-(def endpoint-url "%s/job/%s/lastBuild/api/json")
-(def commands {
-  :success (str app " G")
-  :warning (str app " Y")
-  :failure (str app " R")
-  })
+(def commands {0 (str app " G")
+               1 (str app " Y")
+               2 (str app " R")})
 (def interval 3000)
 
 (defn exec [cmd]
@@ -29,30 +24,23 @@
                             exit-code
                             (:err result))))))
 
-(defn str-to-status [status]
-  (cond (= status "SUCCESS") :success
-        (= status "FAILURE") :failure
-        :else :warning))
-
-(defn get-last-status [job]
-  (let [url (format endpoint-url jenkins-host job)
+(defn get-command []
+  (let [url (str jenkins-host "/api/json")
         response (client/get url)
-        body (read-json (:body response))]
-       (if (= (:building body) true) :warning (str-to-status (:result body)))))
-
-(defn combine-status [first-status second-status]
-  (cond (or (= first-status :failure) (= second-status :failure))
-      :failure
-    (or (= first-status :warning) (= second-status :warning))
-      :warning
-    :else
-      :success))
-
-(defn update-lights []
-  (let [status (reduce combine-status (map get-last-status jobs))]
-    (exec (status commands))))
+        body (read-json (:body response))
+        status (reduce max 0 (map #(get {"blue" 0
+                                         "blue_anime" 0
+                                         "disabled" 0
+                                         "disabled_anime" 0
+                                         "yellow" 1
+                                         "yellow_anime" 1
+                                         "red" 2
+                                         "red_anime" 2}
+                                        (:color %1))
+                                  (:jobs body)))]
+       (get commands status)))
 
 (defn -main []
   (while true
-    (update-lights)
+    (exec (get-command))
     (Thread/sleep interval)))
