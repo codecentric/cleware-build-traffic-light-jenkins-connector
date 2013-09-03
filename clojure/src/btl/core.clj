@@ -6,7 +6,7 @@
   (:require [clj-http.client :as client]))
 
 ; Server specific configurations go here
-(def jenkins-host "http://jenkins.example.com")
+(def jenkins-host "http://wgvli39.swlabor.local:8080")
 (def app "C:\\cleware\\USBswitchCmd.exe")
 (def working-dir "C:\\cleware")
 (def commands {0 (str app " G")
@@ -35,7 +35,11 @@
                                          "yellow" 1
                                          "yellow_anime" 1
                                          "red" 2
-                                         "red_anime" 2}
+                                         "red_anime" 2
+                                         "aborted" 2
+                                         "aborted_anime" 2
+                                         "grey" 2
+                                         "grey_anime" 2}
                                         (:color %1))
                                   (:jobs body)))]
        (get commands status)))
